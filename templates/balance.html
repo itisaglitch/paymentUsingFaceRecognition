@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+	{% block content %}
+
+   	  {% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class=flashes>
+				{% for message in messages %}
+				<li>{{ message }}</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+	  	{% endwith %}
+
+   	  <h2>Your balance is {{bal}} right now, {{person}}</h2>
+      <form action = "http://localhost:5000/Balance" method = "post">
+         <p>Enter Balance you would like to add:</p>
+         <input type = "text" name = "nm" />
+         <input type = "submit" name = "Button" value = "Add" />
+         <input type = "submit" name = "Button" value = "HomePage" />
+      </form>
+    {% endblock %}
